@@ -21,14 +21,14 @@ def load_nodes():
     with open('./nodes.txt') as f:
         lines = f.readlines()
         for line in lines:
-            nodes.append(line)
+            nodes.append(line.replace('\n', '').replace('\r', ''))
     return nodes
 
 def reboot():
     nodes = load_nodes()
     for node in nodes:
         ws = PowerSw(node)
-        ws.rebbot()
+        ws.reboot()
         print('reboot ' + node)
 
 def poweroff():
