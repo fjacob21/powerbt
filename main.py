@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import argparse
-import argparse
 from gpiozero import Button
-
+from powersw import PowerSw
 from time import sleep
 
 def wait_button(reboot_id=19, poweroff_id=26, wait_time=0.5):
@@ -28,11 +27,15 @@ def load_nodes():
 def reboot():
     nodes = load_nodes()
     for node in nodes:
+        ws = PowerSw(node)
+        ws.rebbot()
         print('reboot ' + node)
 
 def poweroff():
     nodes = load_nodes()
     for node in nodes:
+        ws = PowerSw(node)
+        ws.poweroff()
         print('poweroff ' + node)
 
 if __name__ == '__main__':
