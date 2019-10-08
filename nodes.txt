@@ -1,0 +1,5 @@
+picluster1-pimaster.home
+picluster1-pi1.home
+picluster1-pi2.home
+picluster1-pi3.home
+picluster1-pi4.home
